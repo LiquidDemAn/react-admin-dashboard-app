@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 import { createTheme } from '@mui/material/styles';
-import { ThemeModeType } from './typedef';
+import { PaletteMode } from '@mui/material';
 import { themeSettings } from './theme-settings';
 
 export const useMode = () => {
-	const [mode, setMode] = useState<ThemeModeType>('dark');
+	const [mode, setMode] = useState<PaletteMode>('dark');
 
 	const colorMode = useMemo(
 		() => ({

@@ -1,6 +1,6 @@
-import { ThemeModeType } from './typedef';
+import { PaletteMode } from '@mui/material';
 
-export const colorsObject = (mode: ThemeModeType) => ({
+export const colorsObject = (mode: PaletteMode) => ({
 	...(mode === 'dark'
 		? {
 				grey: {

@@ -1,14 +1,14 @@
 import { colorsObject } from './colors';
-import { ThemeModeType } from './typedef';
+import { PaletteMode, ThemeOptions } from '@mui/material';
 
 const fontFamily = ['Source Sans Pro', 'sans-serif'].join(',');
 
-export const themeSettings = (mode: ThemeModeType) => {
+export const themeSettings = (mode: PaletteMode): ThemeOptions => {
 	const colors = colorsObject(mode);
 
 	return {
 		palette: {
-			mode: mode,
+			mode,
 			...(mode === 'dark'
 				? {
 						primary: {
