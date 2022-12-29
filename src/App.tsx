@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { Topbar } from './scenes/global/topbar';
 import { ColorContext } from './theme/color-context';
 import { useMode } from './theme/use-mode';
 
@@ -11,8 +12,7 @@ function App() {
 				<CssBaseline />
 				<div className='app'>
 					<main className='content'>
-						<h1>Hello</h1>
-						<span>Q</span>
+						<Topbar />
 					</main>
 				</div>
 			</ThemeProvider>
