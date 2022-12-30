@@ -1,14 +1,18 @@
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Menu, MenuItem } from 'react-pro-sidebar';
-import { ColorsObjectType } from '../../../theme/colors';
+import { MenuItem, Sidebar } from 'react-pro-sidebar';
 
-export const MenuButton = styled(MenuItem)<{ colors: ColorsObjectType }>(
-	(props) => ({
-		margin: '10px 0 20px 0',
-		color: props.colors.grey[100],
-	})
-);
+export const ProSidebar = styled(Sidebar)({
+	border: 'none !important',
+});
+
+export const MenuButton = styled(MenuItem)({
+	margin: '10px 0 20px 0',
+
+	'a:hover': {
+		backgroundColor: 'inherit',
+	},
+});
 
 export const MenuHeader = styled(Box)({
 	display: 'flex',
@@ -16,12 +20,6 @@ export const MenuHeader = styled(Box)({
 	alignItems: 'center',
 	marginLeft: 15,
 });
-
-export const MenuTitle = styled(Typography)<{
-	colors: ColorsObjectType;
-}>((props) => ({
-	color: props.colors.grey[100],
-}));
 
 export const User = styled(Box)({
 	marginBottom: 25,
@@ -44,16 +42,11 @@ export const UserTitle = styled(Box)({
 	textAlign: 'center',
 });
 
-export const UserName = styled(Typography)<{
-	colors: ColorsObjectType;
-}>((props) => ({
-	color: props.colors.grey[100],
+export const UserName = styled(Typography)({
 	fontWeight: 700,
 	marginTop: 10,
-}));
+});
 
-export const UserPosition = styled(Typography)<{
-	colors: ColorsObjectType;
-}>((props) => ({
-	color: props.colors.greenAccent[500],
-}));
+export const MenuItemsTitle = styled(Typography)({
+	margin: '15px 0 5px 20px',
+});
