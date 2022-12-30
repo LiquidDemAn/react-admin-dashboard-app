@@ -2,7 +2,7 @@ import { Box, InputBase, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ColorsObjectType } from '../../../theme/colors';
 
-export const TopbarBox = styled(Box)({
+export const TopbarContainer = styled(Box)({
 	display: 'flex',
 	justifyContent: 'space-between',
 	padding: 10,
@@ -10,6 +10,11 @@ export const TopbarBox = styled(Box)({
 
 export const TopbarSearchBox = styled(Box)<{ colors: ColorsObjectType }>(
 	(props) => ({
+		...(
+			props.sx={
+				
+			}
+		),
 		display: 'flex',
 		backgroundColor: props.colors.primary[400],
 		borderRadius: 3,

@@ -1,11 +1,5 @@
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
-import SearchIcon from '@mui/icons-material/Search';
 import {
-	TopbarBox,
+	TopbarContainer,
 	TopbarSearchBox,
 	TopbarSearchInput,
 	TopbarSearchButton,
@@ -16,6 +10,13 @@ import { ColorContext } from '../../../theme/color-context';
 import { useTheme, IconButton } from '@mui/material';
 import { colorsObject } from '../../../theme/colors';
 
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+
 export const Topbar = () => {
 	const theme = useTheme();
 	const { toggleColorMode } = useContext(ColorContext);
@@ -23,7 +24,7 @@ export const Topbar = () => {
 	const colors = colorsObject(mode);
 
 	return (
-		<TopbarBox>
+		<TopbarContainer>
 			{/* Searach */}
 			<TopbarSearchBox colors={colors}>
 				<TopbarSearchInput placeholder='Search' />
@@ -54,6 +55,6 @@ export const Topbar = () => {
 					<SettingsOutlinedIcon />
 				</IconButton>
 			</TopbarIconsBox>
-		</TopbarBox>
+		</TopbarContainer>
 	);
 };
