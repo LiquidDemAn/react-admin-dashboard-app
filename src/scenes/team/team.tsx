@@ -3,18 +3,13 @@ import { mockDataTeam } from '../../data/mock-data';
 import { Header } from '../../components/header';
 import { useTheme } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import {
-	AccessBlock,
-	AccessName,
-	Container,
-	TableWrapper,
-} from './team.styled';
+import { AccessBlock, AccessName } from './team.styled';
 
 // Icons
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
-
+import { PageContainer, TableComponent } from '../../global.styled';
 
 export const Team = () => {
 	const theme = useTheme();
@@ -72,11 +67,11 @@ export const Team = () => {
 	];
 
 	return (
-		<Container>
+		<PageContainer>
 			<Header title='Team' subtitle='Managing the Team Members' />
-			<TableWrapper colors={colors}>
+			<TableComponent colors={colors}>
 				<DataGrid rows={mockDataTeam} columns={columns} />
-			</TableWrapper>
-		</Container>
+			</TableComponent>
+		</PageContainer>
 	);
 };
