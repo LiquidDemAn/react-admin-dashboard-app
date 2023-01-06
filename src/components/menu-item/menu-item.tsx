@@ -1,15 +1,16 @@
 import { SvgIconTypeMap, Typography, useTheme } from '@mui/material';
 import { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
+import { RoutesEnum } from '../../App';
 import { colorsObject } from '../../theme/colors';
 import { Item } from './menu-item.styled';
 
 type Props = {
 	title: string;
 	icon: ReactElement<SvgIconTypeMap>;
-	to: string;
+	to: RoutesEnum;
 	selected: string;
-	setSelected: (selected: string) => void;
+	setSelected: (selected: RoutesEnum) => void;
 };
 
 export const MenuItemComponent = ({
@@ -23,16 +24,16 @@ export const MenuItemComponent = ({
 	const colors = colorsObject(theme.palette.mode);
 
 	const handleSelect = () => {
-		setSelected(title);
+		setSelected(to);
 	};
 
 	return (
 		<Link to={to}>
 			<Item
-				active={selected === title}
+				active={selected === to}
 				onClick={handleSelect}
 				icon={icon}
-                color={colors.grey[100]}
+				color={colors.grey[100]}
 			>
 				<Typography>{title}</Typography>
 			</Item>

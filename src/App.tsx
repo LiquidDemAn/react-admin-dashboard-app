@@ -11,6 +11,14 @@ import { Team } from './scenes/team';
 import { ColorContext } from './theme/color-context';
 import { useMode } from './theme/use-mode';
 
+export enum RoutesEnum {
+	Home = '/',
+	Team = '/team',
+	Contacts = '/contacts',
+	Invoices = '/invoices',
+	Form = '/form',
+}
+
 function App() {
 	const { theme, colorMode } = useMode();
 
@@ -24,11 +32,11 @@ function App() {
 						<main className='content'>
 							<Topbar />
 							<Routes>
-								<Route path='/' element={<Dashboard />} />
-								<Route path='/team' element={<Team />} />
-								<Route path='/contacts' element={<Contacts />} />
-								<Route path='/invoices' element={<Invoices />} />
-								<Route path='/form' element={<CreateUserForm />} />
+								<Route path={RoutesEnum.Home} element={<Dashboard />} />
+								<Route path={RoutesEnum.Team} element={<Team />} />
+								<Route path={RoutesEnum.Contacts} element={<Contacts />} />
+								<Route path={RoutesEnum.Invoices} element={<Invoices />} />
+								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />
 							</Routes>
 						</main>
 					</div>

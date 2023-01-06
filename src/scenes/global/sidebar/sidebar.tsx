@@ -29,12 +29,18 @@ import {
 	MenuItemsTitle,
 } from './sidebar.styled';
 import { MenuItemComponent } from '../../../components/menu-item';
+import { RoutesEnum } from '../../../App';
 
 export const Sidebar = () => {
+	const pathname = window.location.pathname;
+	const firstParam = pathname.split('/')[1];
 	const theme = useTheme();
 	const mode = theme.palette.mode;
 	const colors = colorsObject(mode);
-	const [selected, setSelected] = useState('Dashboard');
+	
+	const [selected, setSelected] = useState<RoutesEnum | string>(
+		`/${firstParam}`
+	);
 	const { collapseSidebar, collapsed } = useProSidebar();
 
 	const handleCollapse = () => {
@@ -83,7 +89,7 @@ export const Sidebar = () => {
 				<Box>
 					<MenuItemComponent
 						title='Dashboard'
-						to='/'
+						to={RoutesEnum.Home}
 						icon={<HomeOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -97,7 +103,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Manage Team'
-						to='/team'
+						to={RoutesEnum.Team}
 						icon={<PeopleOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -105,7 +111,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Contacts Information'
-						to='/contacts'
+						to={RoutesEnum.Contacts}
 						icon={<ContactsOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -113,7 +119,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Invoices Balances'
-						to='/invoices'
+						to={RoutesEnum.Invoices}
 						icon={<ReceiptOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -127,7 +133,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Profile Form'
-						to='/form'
+						to={RoutesEnum.Form}
 						icon={<PersonOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -135,7 +141,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Calendar'
-						to='/calendar'
+						// to='/calendar'
+						to={RoutesEnum.Form}
 						icon={<CalendarTodayOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -143,7 +150,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='FAQ Page'
-						to='/faq'
+						// to='/faq'
+						to={RoutesEnum.Form}
 						icon={<HelpOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -157,7 +165,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Bar Chart'
-						to='/bar'
+						// to='/bar'
+						to={RoutesEnum.Form}
 						icon={<BarChartOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -165,7 +174,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Pie Chart'
-						to='/pie'
+						// to='/pie'
+						to={RoutesEnum.Form}
 						icon={<PieChartOutlineOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -173,7 +183,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Line Chart'
-						to='/line'
+						// to='/line'
+						to={RoutesEnum.Form}
 						icon={<TimelineOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
@@ -181,7 +192,8 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Geography Chart'
-						to='/geography'
+						// to='/geography'
+						to={RoutesEnum.Form}
 						icon={<MapOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
