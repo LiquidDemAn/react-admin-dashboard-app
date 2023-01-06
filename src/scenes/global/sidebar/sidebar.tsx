@@ -149,8 +149,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='FAQ Page'
-						// to='/faq'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Faq}
 						icon={<HelpOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}

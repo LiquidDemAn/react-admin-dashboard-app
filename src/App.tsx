@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Calendar } from './scenes/calendar';
 import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
+import { Faq } from './scenes/faq';
 import { CreateUserForm } from './scenes/form';
 import { Sidebar } from './scenes/global/sidebar';
 import { Topbar } from './scenes/global/topbar';
@@ -18,7 +19,8 @@ export enum RoutesEnum {
 	Contacts = 'contacts',
 	Invoices = 'invoices',
 	Form = 'form',
-	Calendar = 'calendar'
+	Calendar = 'calendar',
+	Faq = 'faq',
 }
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
 								<Route path={RoutesEnum.Invoices} element={<Invoices />} />
 								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />
 								<Route path={RoutesEnum.Calendar} element={<Calendar />} />
+								<Route path={RoutesEnum.Faq} element={<Faq />} />
 							</Routes>
 						</main>
 					</div>
