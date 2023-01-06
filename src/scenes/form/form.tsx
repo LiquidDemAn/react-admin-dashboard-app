@@ -1,13 +1,9 @@
 import { Button } from '@mui/material';
 import { Formik } from 'formik';
 import { Header } from '../../components/header';
+import { PageContainer } from '../../global.styled';
 import { initialValues, userSchema } from './form.config';
-import {
-	ButtonContainer,
-	Container,
-	FormInner,
-	FormInput,
-} from './form.styled';
+import { ButtonContainer, FormInner, FormInput } from './form.styled';
 
 export const CreateUserForm = () => {
 	const handleSubmit = (values: any) => {
@@ -15,7 +11,7 @@ export const CreateUserForm = () => {
 	};
 
 	return (
-		<Container>
+		<PageContainer>
 			<Header title='Create User' subtitle='Create a New User Profile' />
 
 			<Formik
@@ -119,6 +115,6 @@ export const CreateUserForm = () => {
 					);
 				}}
 			</Formik>
-		</Container>
+		</PageContainer>
 	);
 };

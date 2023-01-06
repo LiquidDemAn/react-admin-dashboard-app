@@ -9,7 +9,7 @@ export const PageContainer = styled(Box)({
 export const TableComponent = styled(Box)(
 	({ colors }: { colors: ColorsObjectType }) => ({
 		marginTop: 40,
-		height: '75vh',
+		height: '73vh',
 
 		'& .MuiDataGrid-root': {
 			border: 'none',

@@ -1,10 +1,6 @@
 import { Box, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const Container = styled(Box)(() => ({
-	margin: 20,
-}));
-
 export const FormInner = styled(Box)(() => ({
 	display: 'grid',
 	gap: 30,

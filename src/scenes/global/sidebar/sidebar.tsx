@@ -37,9 +37,9 @@ export const Sidebar = () => {
 	const theme = useTheme();
 	const mode = theme.palette.mode;
 	const colors = colorsObject(mode);
-	
+
 	const [selected, setSelected] = useState<RoutesEnum | string>(
-		`/${firstParam}`
+		firstParam || RoutesEnum.Home
 	);
 	const { collapseSidebar, collapsed } = useProSidebar();
 
@@ -58,7 +58,7 @@ export const Sidebar = () => {
 					{!collapsed && (
 						<MenuHeader>
 							<Typography variant='h3' color={colors.grey[100]}>
-								ADMINIS
+								ADMINS
 							</Typography>
 							<IconButton onClick={handleCollapse}>
 								<MenuOutlinedIcon />
@@ -141,8 +141,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Calendar'
-						// to='/calendar'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Calendar}
 						icon={<CalendarTodayOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
