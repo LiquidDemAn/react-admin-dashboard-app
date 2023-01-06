@@ -163,8 +163,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Bar Chart'
-						// to='/bar'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Bar}
 						icon={<BarChartOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}

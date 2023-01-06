@@ -1,6 +1,7 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import { Route, Routes } from 'react-router-dom';
+import { Bar } from './scenes/bar';
 import { Calendar } from './scenes/calendar';
 import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
@@ -21,6 +22,7 @@ export enum RoutesEnum {
 	Form = 'form',
 	Calendar = 'calendar',
 	Faq = 'faq',
+	Bar = 'bar',
 }
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
 								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />
 								<Route path={RoutesEnum.Calendar} element={<Calendar />} />
 								<Route path={RoutesEnum.Faq} element={<Faq />} />
+								<Route path={RoutesEnum.Bar} element={<Bar />} />
 							</Routes>
 						</main>
 					</div>
