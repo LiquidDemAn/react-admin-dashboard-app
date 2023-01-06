@@ -3,6 +3,7 @@ import { ProSidebarProvider } from 'react-pro-sidebar';
 import { Route, Routes } from 'react-router-dom';
 import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
+import { CreateUserForm } from './scenes/form';
 import { Sidebar } from './scenes/global/sidebar';
 import { Topbar } from './scenes/global/topbar';
 import { Invoices } from './scenes/invoices';
@@ -27,6 +28,7 @@ function App() {
 								<Route path='/team' element={<Team />} />
 								<Route path='/contacts' element={<Contacts />} />
 								<Route path='/invoices' element={<Invoices />} />
+								<Route path='/form' element={<CreateUserForm />} />
 							</Routes>
 						</main>
 					</div>
