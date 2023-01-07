@@ -171,8 +171,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Pie Chart'
-						// to='/pie'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Pie}
 						icon={<PieChartOutlineOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}

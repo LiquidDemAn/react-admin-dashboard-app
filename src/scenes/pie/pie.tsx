@@ -1,14 +1,14 @@
 import { Box } from '@mui/system';
-import { BarChart } from '../../components/bar-chart';
 import { Header } from '../../components/header';
+import { PieChart } from '../../components/pie-chart';
 import { PageContainer } from '../../global.styled';
 
-export const Bar = () => {
+export const Pie = () => {
 	return (
 		<PageContainer>
-			<Header title='bar chart' subtitle='Simple Bar Chart' />
+			<Header title='pie chart' subtitle='Simple Pie Chart' />
 			<Box height='73vh'>
-				<BarChart />
+				<PieChart />
 			</Box>
 		</PageContainer>
 	);
