@@ -10,6 +10,7 @@ import { CreateUserForm } from './scenes/form';
 import { Sidebar } from './scenes/global/sidebar';
 import { Topbar } from './scenes/global/topbar';
 import { Invoices } from './scenes/invoices';
+import { Line } from './scenes/line';
 import { Pie } from './scenes/pie';
 import { Team } from './scenes/team';
 import { ColorContext } from './theme/color-context';
@@ -24,7 +25,8 @@ export enum RoutesEnum {
 	Calendar = 'calendar',
 	Faq = 'faq',
 	Bar = 'bar',
-	Pie = 'pie'
+	Pie = 'pie',
+	Line = 'line',
 }
 
 function App() {
@@ -49,6 +51,7 @@ function App() {
 								<Route path={RoutesEnum.Faq} element={<Faq />} />
 								<Route path={RoutesEnum.Bar} element={<Bar />} />
 								<Route path={RoutesEnum.Pie} element={<Pie />} />
+								<Route path={RoutesEnum.Line} element={<Line />} />
 							</Routes>
 						</main>
 					</div>

@@ -179,8 +179,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Line Chart'
-						// to='/line'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Line}
 						icon={<TimelineOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}
