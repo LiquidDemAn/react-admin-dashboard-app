@@ -38,3 +38,9 @@ export const TableComponent = styled(Box)(
 		},
 	})
 );
+
+export const ContentBox = styled(Box)(({ borderColor }) => ({
+	height: '73vh',
+	border: borderColor ? `1px solid ${borderColor}` : '',
+	borderRadius: '4px',
+}));

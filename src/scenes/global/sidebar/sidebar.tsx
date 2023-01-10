@@ -187,8 +187,7 @@ export const Sidebar = () => {
 
 					<MenuItemComponent
 						title='Geography Chart'
-						// to='/geography'
-						to={RoutesEnum.Form}
+						to={RoutesEnum.Geography}
 						icon={<MapOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}

@@ -7,6 +7,7 @@ import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
 import { Faq } from './scenes/faq';
 import { CreateUserForm } from './scenes/form';
+import { Geography } from './scenes/geography';
 import { Sidebar } from './scenes/global/sidebar';
 import { Topbar } from './scenes/global/topbar';
 import { Invoices } from './scenes/invoices';
@@ -27,6 +28,7 @@ export enum RoutesEnum {
 	Bar = 'bar',
 	Pie = 'pie',
 	Line = 'line',
+	Geography = 'geography'
 }
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
 								<Route path={RoutesEnum.Bar} element={<Bar />} />
 								<Route path={RoutesEnum.Pie} element={<Pie />} />
 								<Route path={RoutesEnum.Line} element={<Line />} />
+								<Route path={RoutesEnum.Geography} element={<Geography />} />
 							</Routes>
 						</main>
 					</div>
