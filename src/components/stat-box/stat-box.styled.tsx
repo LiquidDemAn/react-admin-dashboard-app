@@ -8,5 +8,13 @@ export const Container = styled(Box)(() => ({
 
 export const Wrapper = styled(Box)(() => ({
 	display: 'flex',
-	justifyContent: 'center',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+}));
+
+export const ProgressWrapper = styled(Box)(() => ({
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	gap: 5,
 }));
