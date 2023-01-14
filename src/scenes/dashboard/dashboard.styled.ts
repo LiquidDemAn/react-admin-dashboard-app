@@ -97,3 +97,27 @@ export const TransactionCost = styled(Typography)(
 		backgroundColor,
 	})
 );
+
+export const ProgressCircleContainer = styled(Box)(
+	({ backgroundColor }: BackgroundColorProp) => ({
+		gridColumn: 'span 4',
+		gridRow: 'span 2',
+		padding: 30,
+		backgroundColor,
+	})
+);
+
+export const ProgressCircleWrapper = styled(Box)(() => ({
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	marginTop: 25,
+	gap: 15,
+}));
+
+export const BarChartContainer = styled(ProgressCircleContainer)(() => ({}));
+
+export const BarChartWrapper = styled(Box)(() => ({
+	height: 275,
+	marginTop: -20
+}));

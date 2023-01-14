@@ -12,6 +12,10 @@ import {
 	TransactionsHeader,
 	Transaction,
 	TransactionCost,
+	ProgressCircleContainer,
+	ProgressCircleWrapper,
+	BarChartContainer,
+	BarChartWrapper,
 } from './dashboard.styled';
 import { Box, Typography, useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
@@ -144,7 +148,7 @@ export const Dashboard = () => {
 									{transaction.user}
 								</Typography>
 							</Box>
-							
+
 							<Box>
 								<Typography color={colors.grey[100]}>
 									{transaction.date}
@@ -156,6 +160,26 @@ export const Dashboard = () => {
 						</Transaction>
 					))}
 				</TransactionsContainer>
+				{/* /ROW 2 */}
+
+				{/* ROW 3 */}
+				<ProgressCircleContainer backgroundColor={colors.primary[400]}>
+					<Typography variant='h5'>Campaign</Typography>
+					<ProgressCircleWrapper>
+						<ProgressCircle size={125} progress={0.75} />
+						<Typography variant='h5' color={colors.greenAccent[500]}>
+							$48,352 revenue generated
+						</Typography>
+						<Typography>Includes extra misc expenditures and costs</Typography>
+					</ProgressCircleWrapper>
+				</ProgressCircleContainer>
+
+				<BarChartContainer backgroundColor={colors.primary[400]}>
+					<Typography variant='h5'>Sales Quantity</Typography>
+					<BarChartWrapper>
+						<BarChart isDashboard />
+					</BarChartWrapper>
+				</BarChartContainer>
 			</Main>
 		</PageContainer>
 	);
