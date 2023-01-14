@@ -1,12 +1,15 @@
 import { Header } from '../../components/header';
 import { PageContainer } from '../../global.styled';
 import {
+	LineChartContainer,
+	LineChartHeader,
 	DashboardStatsBox,
 	DownloadButton,
 	HeaderWrapper,
 	Main,
+	LineChartWrapper,
 } from './dashboard.styled';
-import { Box, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
 import { mockTransactions } from '../../data/mock-data';
 import {
@@ -95,7 +98,26 @@ export const Dashboard = () => {
 				{/* /ROW 1 */}
 
 				{/* ROW 2 */}
-				
+				<LineChartContainer backgroundColor={colors.primary[400]}>
+					<LineChartHeader>
+						<Box>
+							<Typography variant='h5' color={colors.grey[100]}>
+								Revenue Generated
+							</Typography>
+							<Typography variant='h3' color={colors.greenAccent[500]}>
+								$59,342,32
+							</Typography>
+						</Box>
+
+						<DownloadButton colors={colors}>
+							<DownloadOutlined />
+						</DownloadButton>
+					</LineChartHeader>
+
+					<LineChartWrapper>
+						<LineChart isDashboard />
+					</LineChartWrapper>
+				</LineChartContainer>
 			</Main>
 		</PageContainer>
 	);

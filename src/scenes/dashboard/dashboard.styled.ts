@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ColorsObjectType } from '../../theme/colors';
 
@@ -6,7 +6,7 @@ type ColorsProps = {
 	colors: ColorsObjectType;
 };
 
-type DashboardStatsBoxProps = {
+type BackgroundColorProp = {
 	backgroundColor: string;
 };
 
@@ -17,15 +17,13 @@ export const HeaderWrapper = styled(Box)(() => ({
 }));
 
 export const DownloadButton = styled(Button)(({ colors }: ColorsProps) => ({
+	display: 'flex',
+	gap: 10,
+	padding: '10px 20px',
 	fontSize: '14px',
 	fontWeight: 700,
-	padding: '10px 20px',
 	backgroundColor: colors.blueAccent[700],
 	color: colors.grey[100],
-
-	'& svg': {
-		marginRight: '10px',
-	},
 }));
 
 export const Main = styled('main')(() => ({
@@ -36,7 +34,7 @@ export const Main = styled('main')(() => ({
 }));
 
 export const DashboardStatsBox = styled(Box)(
-	({ backgroundColor }: DashboardStatsBoxProps) => ({
+	({ backgroundColor }: BackgroundColorProp) => ({
 		gridColumn: 'span 3',
 		display: 'flex',
 		alignItems: 'center',
@@ -44,3 +42,24 @@ export const DashboardStatsBox = styled(Box)(
 		backgroundColor,
 	})
 );
+
+export const LineChartContainer = styled(Box)(
+	({ backgroundColor }: BackgroundColorProp) => ({
+		gridColumn: 'span 8',
+		gridRow: 'span 2',
+		backgroundColor,
+	})
+);
+
+export const LineChartHeader = styled(Box)(() => ({
+	marginTop: 25,
+	padding: '0 30px',
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+}));
+
+export const LineChartWrapper = styled(Box)(() => ({
+	height: 250,
+	marginLeft: -20,
+}));
