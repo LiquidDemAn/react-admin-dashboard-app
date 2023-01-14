@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, useProSidebar } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import userAvatar from '../../../assets/user.png';
@@ -42,6 +42,10 @@ export const Sidebar = () => {
 		firstParam || RoutesEnum.Home
 	);
 	const { collapseSidebar, collapsed } = useProSidebar();
+
+	useEffect(() => {
+		collapseSidebar(true);
+	}, [collapseSidebar]);
 
 	const handleCollapse = () => {
 		collapseSidebar(!collapsed);

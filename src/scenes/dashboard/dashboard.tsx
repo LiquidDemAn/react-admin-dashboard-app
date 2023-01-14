@@ -1,11 +1,10 @@
 import { Header } from '../../components/header';
-import { PageContainer } from '../../global.styled';
+import { FlexBox, PageContainer } from '../../global.styled';
 import {
 	LineChartContainer,
 	LineChartHeader,
 	DashboardStatsBox,
 	DownloadButton,
-	HeaderWrapper,
 	Main,
 	LineChartWrapper,
 	TransactionsContainer,
@@ -31,25 +30,26 @@ import {
 } from '@mui/icons-material';
 import { LineChart } from '../../components/line-chart';
 import { BarChart } from '../../components/bar-chart';
-import { PieChart } from '../../components/pie-chart';
 import { GeographyChart } from '../../components/geography-chart';
 import { StatBox } from '../../components/stat-box';
 import { ProgressCircle } from '../../components/progress-circle';
+import { BreakpointsEnum } from '../../App';
 
 export const Dashboard = () => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
+	const windowSize = window.innerWidth;
 
 	return (
 		<PageContainer>
-			<HeaderWrapper>
+			<FlexBox>
 				<Header title='Dashboard' subtitle='Welcome to your dashboard' />
 
 				<DownloadButton colors={colors}>
 					<DownloadOutlined />
-					Download Reports
+					{windowSize > BreakpointsEnum.Sm && 'Download Reports'}
 				</DownloadButton>
-			</HeaderWrapper>
+			</FlexBox>
 
 			{/* GRID & CHARTS */}
 			<Main>

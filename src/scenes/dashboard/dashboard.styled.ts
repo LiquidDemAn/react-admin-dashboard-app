@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { ContentBox, FlexBox } from '../../global.styled';
 import { ColorsObjectType } from '../../theme/colors';
 
 type ColorsProps = {
@@ -10,82 +11,97 @@ type BackgroundColorProp = {
 	backgroundColor: string;
 };
 
-export const HeaderWrapper = styled(Box)(() => ({
-	display: 'flex',
-	justifyContent: 'space-between',
-	alignItems: 'center',
-}));
+const GridContainer = styled(Box)(
+	({ backgroundColor }: { backgroundColor: string }) => ({
+		gridColumn: 'span 12',
+		gridRow: 'span 2',
+		padding: '15px',
+		backgroundColor,
 
-export const DownloadButton = styled(Button)(({ colors }: ColorsProps) => ({
-	display: 'flex',
-	gap: 10,
-	padding: '10px 20px',
-	fontSize: '14px',
-	fontWeight: 700,
-	backgroundColor: colors.blueAccent[700],
-	color: colors.grey[100],
-}));
+		'@media(min-width: 768px)': {
+			padding: '30px 10px',
+			gridColumn: 'span 6',
+		},
 
-export const Main = styled('main')(() => ({
+		'@media(min-width: 992px)': {
+			gridColumn: 'span 4',
+		},
+	})
+);
+
+export const DownloadButton = styled(Button)(
+	({ colors }: { colors: ColorsObjectType }) => ({
+		display: 'flex',
+		gap: 10,
+		padding: '10px 20px',
+		fontSize: '14px',
+		fontWeight: 700,
+		backgroundColor: colors.blueAccent[700],
+		color: colors.grey[100],
+	})
+);
+
+export const Main = styled(ContentBox)(() => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12, 1fr)',
 	gridAutoRows: '140px',
 	gap: '20px',
+	overflow: 'auto',
 }));
 
-export const DashboardStatsBox = styled(Box)(
-	({ backgroundColor }: BackgroundColorProp) => ({
-		gridColumn: 'span 3',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor,
-	})
-);
-
-export const LineChartContainer = styled(Box)(
-	({ backgroundColor }: BackgroundColorProp) => ({
-		gridColumn: 'span 8',
-		gridRow: 'span 2',
-		backgroundColor,
-	})
-);
-
-export const LineChartHeader = styled(Box)(() => ({
-	marginTop: 25,
-	padding: '0 30px',
+export const DashboardStatsBox = styled(GridContainer)(() => ({
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
+
+	gridRow: 'auto',
+	padding: 0,
+
+	'@media(min-width: 992px)': {
+		gridColumn: 'span 3',
+	},
+}));
+
+export const LineChartContainer = styled(GridContainer)(() => ({
+	padding: 0,
+
+	'@media(min-width: 768px)': {
+		gridColumn: 'span 12',
+		padding: 0,
+	},
+
+	'@media(min-width: 992px)': {
+		gridColumn: 'span 8',
+	},
+}));
+
+export const LineChartHeader = styled(FlexBox)(() => ({
+	marginTop: 25,
+	padding: '0 30px',
 }));
 
 export const LineChartWrapper = styled(Box)(() => ({
 	height: 250,
-	// marginLeft: -20,
 }));
 
-export const TransactionsContainer = styled(Box)(
-	({ backgroundColor }: BackgroundColorProp) => ({
-		gridColumn: 'span 4',
-		gridRow: 'span 2',
-		overflow: 'auto',
-		backgroundColor,
+export const TransactionsContainer = styled(GridContainer)(() => ({
+	overflow: 'auto',
+	padding: 0,
+
+	'@media(min-width: 768px)': {
+		padding: 0,
+	},
+}));
+
+export const TransactionsHeader = styled(FlexBox)(
+	({ colors }: ColorsProps) => ({
+		padding: 15,
+		color: colors.grey[100],
+		borderBottom: `4px solid ${colors.primary[500]}`,
 	})
 );
 
-export const TransactionsHeader = styled(Box)(({ colors }: ColorsProps) => ({
-	display: 'flex',
-	justifyContent: 'space-between',
-	alignItems: 'center',
-	padding: 15,
-	color: colors.grey[100],
-	borderBottom: `4px solid ${colors.primary[500]}`,
-}));
-
-export const Transaction = styled(Box)(({ borderColor }) => ({
-	display: 'flex',
-	justifyContent: 'space-between',
-	alignItems: 'center',
+export const Transaction = styled(FlexBox)(({ borderColor }) => ({
 	padding: 15,
 	borderBottom: `4px solid ${borderColor}`,
 }));
@@ -98,35 +114,23 @@ export const TransactionCost = styled(Typography)(
 	})
 );
 
-export const ProgressCircleContainer = styled(Box)(
-	({ backgroundColor }: BackgroundColorProp) => ({
-		gridColumn: 'span 4',
-		gridRow: 'span 2',
-		padding: 30,
-		backgroundColor,
-	})
-);
+export const ProgressCircleContainer = styled(GridContainer)(() => ({}));
 
-export const ProgressCircleWrapper = styled(Box)(() => ({
-	display: 'flex',
+export const ProgressCircleWrapper = styled(FlexBox)(() => ({
 	flexDirection: 'column',
-	alignItems: 'center',
+	textAlign: 'center',
 	marginTop: 25,
 	gap: 15,
 }));
 
-export const BarChartContainer = styled(ProgressCircleContainer)(() => ({
-	padding: '30px 10px',	
-}));
+export const BarChartContainer = styled(GridContainer)(() => ({}));
 
 export const BarChartWrapper = styled(Box)(() => ({
 	height: 275,
 	marginTop: -20,
 }));
 
-export const GeographyChartContainer = styled(ProgressCircleContainer)(
-	() => ({})
-);
+export const GeographyChartContainer = styled(GridContainer)(() => ({}));
 
 export const GeographyChartWrapper = styled(Box)(() => ({
 	height: 240,
