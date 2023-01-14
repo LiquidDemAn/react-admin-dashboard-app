@@ -115,9 +115,19 @@ export const ProgressCircleWrapper = styled(Box)(() => ({
 	gap: 15,
 }));
 
-export const BarChartContainer = styled(ProgressCircleContainer)(() => ({}));
+export const BarChartContainer = styled(ProgressCircleContainer)(() => ({
+	padding: '30px 10px',	
+}));
 
 export const BarChartWrapper = styled(Box)(() => ({
 	height: 275,
-	marginTop: -20
+	marginTop: -20,
+}));
+
+export const GeographyChartContainer = styled(ProgressCircleContainer)(
+	() => ({})
+);
+
+export const GeographyChartWrapper = styled(Box)(() => ({
+	height: 240,
 }));

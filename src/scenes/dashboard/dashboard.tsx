@@ -16,6 +16,8 @@ import {
 	ProgressCircleWrapper,
 	BarChartContainer,
 	BarChartWrapper,
+	GeographyChartWrapper,
+	GeographyChartContainer,
 } from './dashboard.styled';
 import { Box, Typography, useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
@@ -180,6 +182,13 @@ export const Dashboard = () => {
 						<BarChart isDashboard />
 					</BarChartWrapper>
 				</BarChartContainer>
+
+				<GeographyChartContainer backgroundColor={colors.primary[400]}>
+					<Typography variant='h5'>Geography Based Traffic</Typography>
+					<GeographyChartWrapper>
+						<GeographyChart isDashboard colors={colors} />
+					</GeographyChartWrapper>
+				</GeographyChartContainer>
 			</Main>
 		</PageContainer>
 	);
