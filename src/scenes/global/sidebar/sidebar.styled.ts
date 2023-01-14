@@ -2,9 +2,12 @@ import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { MenuItem, Sidebar } from 'react-pro-sidebar';
 
-export const ProSidebar = styled(Sidebar)({
-	border: 'none !important',
-});
+export const ProSidebar = styled(Sidebar)(
+	({ isSmall }: { isSmall?: boolean }) => ({
+		border: 'none !important',
+		width: `100% ${isSmall && '!important'} `,
+	})
+);
 
 export const MenuButton = styled(MenuItem)({
 	margin: '10px 0 20px 0',

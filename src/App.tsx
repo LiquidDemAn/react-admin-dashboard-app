@@ -1,5 +1,6 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { ProSidebarProvider } from 'react-pro-sidebar';
+import { useEffect } from 'react';
+import { useProSidebar } from 'react-pro-sidebar';
 import { Route, Routes } from 'react-router-dom';
 import { Bar } from './scenes/bar';
 import { Calendar } from './scenes/calendar';
@@ -40,14 +41,31 @@ export enum BreakpointsEnum {
 
 function App() {
 	const { theme, colorMode } = useMode();
+	const windowSize = window.innerWidth;
+	const isSmall = windowSize < BreakpointsEnum.Sm;
+	const { collapseSidebar, collapsed } = useProSidebar();
+
+	const handleCollapse = () => {
+		collapseSidebar(!collapsed);
+	};
+
+	useEffect(() => {
+		collapseSidebar(true);
+	}, [collapseSidebar]);
 
 	return (
-		<ProSidebarProvider>
-			<ColorContext.Provider value={colorMode}>
-				<ThemeProvider theme={theme}>
-					<CssBaseline />
-					<div className='app'>
-						<Sidebar />
+		<ColorContext.Provider value={colorMode}>
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<div className='app'>
+					<Sidebar
+						isSmall={isSmall}
+						collapsed={collapsed}
+						handleCollapse={handleCollapse}
+					/>
+					{isSmall && !collapsed ? (
+						<></>
+					) : (
 						<main className='content'>
 							<Topbar />
 							<Routes>
@@ -64,10 +82,10 @@ function App() {
 								<Route path={RoutesEnum.Geography} element={<Geography />} />
 							</Routes>
 						</main>
-					</div>
-				</ThemeProvider>
-			</ColorContext.Provider>
-		</ProSidebarProvider>
+					)}
+				</div>
+			</ThemeProvider>
+		</ColorContext.Provider>
 	);
 }
 

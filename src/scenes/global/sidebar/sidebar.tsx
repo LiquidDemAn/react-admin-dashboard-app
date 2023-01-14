@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Menu, useProSidebar } from 'react-pro-sidebar';
+import { useState } from 'react';
+import { Menu } from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import userAvatar from '../../../assets/user.png';
 
@@ -31,7 +31,13 @@ import {
 import { MenuItemComponent } from '../../../components/menu-item';
 import { RoutesEnum } from '../../../App';
 
-export const Sidebar = () => {
+type Props = {
+	isSmall: boolean;
+	collapsed: boolean;
+	handleCollapse: () => void;
+};
+
+export const Sidebar = ({ isSmall, collapsed, handleCollapse }: Props) => {
 	const pathname = window.location.pathname;
 	const firstParam = pathname.split('/')[1];
 	const theme = useTheme();
@@ -41,18 +47,12 @@ export const Sidebar = () => {
 	const [selected, setSelected] = useState<RoutesEnum | string>(
 		firstParam || RoutesEnum.Home
 	);
-	const { collapseSidebar, collapsed } = useProSidebar();
-
-	useEffect(() => {
-		collapseSidebar(true);
-	}, [collapseSidebar]);
-
-	const handleCollapse = () => {
-		collapseSidebar(!collapsed);
-	};
 
 	return (
-		<ProSidebar backgroundColor={colors.primary[400]}>
+		<ProSidebar
+			isSmall={isSmall && !collapsed}
+			backgroundColor={colors.primary[400]}
+		>
 			<Menu>
 				<MenuButton
 					onClick={handleCollapse}
