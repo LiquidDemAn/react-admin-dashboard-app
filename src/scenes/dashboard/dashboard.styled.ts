@@ -61,5 +61,39 @@ export const LineChartHeader = styled(Box)(() => ({
 
 export const LineChartWrapper = styled(Box)(() => ({
 	height: 250,
-	marginLeft: -20,
+	// marginLeft: -20,
 }));
+
+export const TransactionsContainer = styled(Box)(
+	({ backgroundColor }: BackgroundColorProp) => ({
+		gridColumn: 'span 4',
+		gridRow: 'span 2',
+		overflow: 'auto',
+		backgroundColor,
+	})
+);
+
+export const TransactionsHeader = styled(Box)(({ colors }: ColorsProps) => ({
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+	padding: 15,
+	color: colors.grey[100],
+	borderBottom: `4px solid ${colors.primary[500]}`,
+}));
+
+export const Transaction = styled(Box)(({ borderColor }) => ({
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+	padding: 15,
+	borderBottom: `4px solid ${borderColor}`,
+}));
+
+export const TransactionCost = styled(Typography)(
+	({ backgroundColor }: BackgroundColorProp) => ({
+		padding: '5px 10px',
+		borderRadius: 4,
+		backgroundColor,
+	})
+);

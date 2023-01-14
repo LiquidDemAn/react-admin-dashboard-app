@@ -8,6 +8,10 @@ import {
 	HeaderWrapper,
 	Main,
 	LineChartWrapper,
+	TransactionsContainer,
+	TransactionsHeader,
+	Transaction,
+	TransactionCost,
 } from './dashboard.styled';
 import { Box, Typography, useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
@@ -118,6 +122,40 @@ export const Dashboard = () => {
 						<LineChart isDashboard />
 					</LineChartWrapper>
 				</LineChartContainer>
+
+				<TransactionsContainer backgroundColor={colors.primary[400]}>
+					<TransactionsHeader colors={colors}>
+						<Typography variant='h5' color={colors.grey[100]}>
+							Recent Transactions
+						</Typography>
+					</TransactionsHeader>
+
+					{mockTransactions.map((transaction, index) => (
+						<Transaction
+							borderColor={colors.primary[500]}
+							key={`${transaction.txId}-${index}`}
+						>
+							<Box>
+								<Typography variant='h5' color={colors.greenAccent[500]}>
+									{transaction.txId}
+								</Typography>
+
+								<Typography color={colors.grey[100]}>
+									{transaction.user}
+								</Typography>
+							</Box>
+							
+							<Box>
+								<Typography color={colors.grey[100]}>
+									{transaction.date}
+								</Typography>
+								<TransactionCost backgroundColor={colors.greenAccent[500]}>
+									${transaction.cost}
+								</TransactionCost>
+							</Box>
+						</Transaction>
+					))}
+				</TransactionsContainer>
 			</Main>
 		</PageContainer>
 	);
