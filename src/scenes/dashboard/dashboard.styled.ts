@@ -1,7 +1,6 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ContentBox } from '../../global.styled';
-import { ColorsObjectType } from '../../theme/colors';
 
 export const DashboardGridContainer = styled(Box)(
 	({ backgroundColor }: { backgroundColor: string }) => ({
@@ -18,18 +17,6 @@ export const DashboardGridContainer = styled(Box)(
 		'@media(min-width: 992px)': {
 			gridColumn: 'span 4',
 		},
-	})
-);
-
-export const DownloadButton = styled(Button)(
-	({ colors }: { colors: ColorsObjectType }) => ({
-		display: 'flex',
-		gap: 10,
-		padding: '10px 20px',
-		fontSize: '14px',
-		fontWeight: 700,
-		backgroundColor: colors.blueAccent[700],
-		color: colors.grey[100],
 	})
 );
 

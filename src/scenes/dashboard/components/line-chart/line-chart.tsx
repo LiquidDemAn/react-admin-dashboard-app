@@ -1,9 +1,8 @@
 import { Box, Typography } from '@mui/material';
+import { DownloadButton } from '../../../../components/download-button';
 import { LineChart } from '../../../../components/line-chart';
 import { ColorsObjectType } from '../../../../theme/colors';
-import { DownloadButton } from '../../dashboard.styled';
 import { Container, Header, Wrapper } from './line-chart.styled';
-import { DownloadOutlined } from '@mui/icons-material';
 
 type Props = {
 	colors: ColorsObjectType;
@@ -22,9 +21,7 @@ export const DashboardLineChart = ({ colors }: Props) => {
 					</Typography>
 				</Box>
 
-				<DownloadButton colors={colors}>
-					<DownloadOutlined />
-				</DownloadButton>
+				<DownloadButton />
 			</Header>
 
 			<Wrapper>
