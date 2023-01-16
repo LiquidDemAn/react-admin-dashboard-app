@@ -1,21 +1,13 @@
 import { useState } from 'react';
-import { List, ListItemText, Typography, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
-import {
-	DateSelectArg,
-	EventApi,
-	EventClickArg,
-	formatDate,
-} from '@fullcalendar/core';
+import { DateSelectArg, EventApi, EventClickArg } from '@fullcalendar/core';
 import { Header } from '../../components/header';
 import { PageContainer } from '../../global.styled';
-import {
-	CalendarContainer,
-	CalendarSideBar,
-	EventsList,
-} from './calendar.styled';
+import { CalendarContainer } from './calendar.styled';
 import { Calendar } from './components/calendar';
 import { BreakpointsEnum } from '../../App';
+import { Events } from './components/events';
 
 export const CalendarPage = () => {
 	const theme = useTheme();
@@ -59,36 +51,7 @@ export const CalendarPage = () => {
 			<Header title='Calendar' subtitle='Full calendar Interactive Page' />
 
 			<CalendarContainer>
-				{/* CURRENT EVENTS */}
-				{!isMd && (
-					<CalendarSideBar backgroundColor={colors.primary[400]}>
-						<Typography variant='h5'>Events</Typography>
-						<List>
-							{currentEvents.map((event) => (
-								<EventsList
-									key={event.id}
-									backgroundColor={colors.greenAccent[500]}
-								>
-									<ListItemText
-										primary={event.title}
-										secondary={
-											event.start && (
-												<Typography>
-													{formatDate(event.start, {
-														year: 'numeric',
-														month: 'short',
-														day: 'numeric',
-														timeZoneName: 'short',
-													})}
-												</Typography>
-											)
-										}
-									/>
-								</EventsList>
-							))}
-						</List>
-					</CalendarSideBar>
-				)}
+				{!isMd && <Events colors={colors} currentEvents={currentEvents} />}
 
 				<Calendar
 					isMd={isMd}
