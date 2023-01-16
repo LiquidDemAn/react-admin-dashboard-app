@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useProSidebar } from 'react-pro-sidebar';
 import { Route, Routes } from 'react-router-dom';
 import { Bar } from './scenes/bar';
-import { Calendar } from './scenes/calendar';
+import { CalendarPage } from './scenes/calendar';
 import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
 import { Faq } from './scenes/faq';
@@ -75,7 +75,7 @@ function App() {
 								<Route path={RoutesEnum.Contacts} element={<Contacts />} />
 								<Route path={RoutesEnum.Invoices} element={<Invoices />} />
 								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />
-								<Route path={RoutesEnum.Calendar} element={<Calendar isMd={isMd} />} />
+								<Route path={RoutesEnum.Calendar} element={<CalendarPage />} />
 								<Route path={RoutesEnum.Faq} element={<Faq />} />
 								<Route path={RoutesEnum.Bar} element={<Bar />} />
 								<Route path={RoutesEnum.Pie} element={<Pie />} />

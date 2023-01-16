@@ -1,9 +1,4 @@
 import { useState } from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import InteractionPlugin from '@fullcalendar/interaction';
 import { List, ListItemText, Typography, useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
 import {
@@ -17,18 +12,17 @@ import { PageContainer } from '../../global.styled';
 import {
 	CalendarContainer,
 	CalendarSideBar,
-	CalendarWrapper,
 	EventsList,
 } from './calendar.styled';
+import { Calendar } from './components/calendar';
+import { BreakpointsEnum } from '../../App';
 
-type Props = {
-	isMd: boolean;
-};
-
-export const Calendar = ({ isMd }: Props) => {
+export const CalendarPage = () => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
 	const [currentEvents, setCurrentEvents] = useState<EventApi[]>([]);
+	const windowSize = window.innerWidth;
+	const isMd = windowSize < BreakpointsEnum.Md;
 
 	const handleDateClick = (selected: DateSelectArg) => {
 		const title = prompt('Please enter a new title for your event');
@@ -96,39 +90,12 @@ export const Calendar = ({ isMd }: Props) => {
 					</CalendarSideBar>
 				)}
 
-				{/* CALENDAR */}
-				<CalendarWrapper>
-					<FullCalendar
-						height='75vh'
-						plugins={[
-							dayGridPlugin,
-							timeGridPlugin,
-							InteractionPlugin,
-							listPlugin,
-						]}
-						headerToolbar={{
-							left: !isMd
-								? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-								: 'title',
-							center: !isMd ? 'title' : undefined,
-						}}
-						initialView='dayGridMonth'
-						editable
-						selectable
-						selectMirror
-						dayMaxEvents
-						select={handleDateClick}
-						eventClick={handleEventClick}
-						eventsSet={setEvents}
-						initialEvents={[
-							{
-								id: '1',
-								title: 'All-day Event',
-								date: '2023-01-01',
-							},
-						]}
-					/>
-				</CalendarWrapper>
+				<Calendar
+					isMd={isMd}
+					handleDateClick={handleDateClick}
+					handleEventClick={handleEventClick}
+					setEvents={setEvents}
+				/>
 			</CalendarContainer>
 		</PageContainer>
 	);
