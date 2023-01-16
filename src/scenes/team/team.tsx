@@ -11,14 +11,18 @@ import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import { PageContainer, TableComponent } from '../../global.styled';
 
-export const Team = () => {
+type Props = {
+	isMd: boolean;
+};
+
+export const Team = ({ isMd }: Props) => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
-
 	const columns: GridColDef[] = [
 		{
 			field: 'id',
 			headerName: 'ID',
+			maxWidth: 15,
 		},
 
 		{
@@ -40,6 +44,7 @@ export const Team = () => {
 			type: 'number',
 			headerAlign: 'left',
 			align: 'left',
+			flex: 1,
 		},
 
 		{
@@ -54,12 +59,14 @@ export const Team = () => {
 			flex: 1,
 			renderCell: ({ row: { access } }) => {
 				return (
-					<AccessBlock colors={colors} access={access}>
+					<AccessBlock isMd={isMd} colors={colors} access={access}>
 						{access === 'admin' && <AdminPanelSettingsOutlinedIcon />}
 						{access === 'manager' && <SecurityOutlinedIcon />}
 						{access === 'user' && <LockOpenOutlinedIcon />}
 
-						<AccessName color={colors.grey[100]}>{access}</AccessName>
+						{!isMd && (
+							<AccessName color={colors.grey[100]}>{access}</AccessName>
+						)}
 					</AccessBlock>
 				);
 			},

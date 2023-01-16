@@ -3,9 +3,16 @@ import { styled } from '@mui/material/styles';
 import { ColorsObjectType } from '../../theme/colors';
 
 export const AccessBlock = styled(Box)(
-	({ colors, access }: { colors: ColorsObjectType; access: string }) => ({
+	({
+		colors,
+		access,
+		isMd,
+	}: {
+		colors: ColorsObjectType;
+		access: string;
+		isMd: boolean;
+	}) => ({
 		width: '60%',
-		margin: '0 auto',
 		padding: 5,
 		display: 'flex',
 		justifyContent: 'center',

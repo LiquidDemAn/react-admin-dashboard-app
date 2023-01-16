@@ -43,6 +43,7 @@ function App() {
 	const { theme, colorMode } = useMode();
 	const windowSize = window.innerWidth;
 	const isSmall = windowSize < BreakpointsEnum.Sm;
+	const isMd = windowSize < BreakpointsEnum.Md;
 	const { collapseSidebar, collapsed } = useProSidebar();
 
 	const handleCollapse = () => {
@@ -70,7 +71,7 @@ function App() {
 							<Topbar />
 							<Routes>
 								<Route path={RoutesEnum.Home} element={<Dashboard />} />
-								<Route path={RoutesEnum.Team} element={<Team />} />
+								<Route path={RoutesEnum.Team} element={<Team isMd={isMd} />} />
 								<Route path={RoutesEnum.Contacts} element={<Contacts />} />
 								<Route path={RoutesEnum.Invoices} element={<Invoices />} />
 								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />

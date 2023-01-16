@@ -8,7 +8,7 @@ export const PageContainer = styled(Box)({
 
 export const TableComponent = styled(Box)(
 	({ colors }: { colors: ColorsObjectType }) => ({
-		marginTop: 40,
+		marginTop: 25,
 		height: '75vh',
 
 		'& .MuiDataGrid-root': {
@@ -45,8 +45,8 @@ export const ContentBox = styled(Box)(({ borderColor }) => ({
 	borderRadius: '4px',
 }));
 
-export const FlexBox = styled(Box)(() => ({
+export const FlexBox = styled(Box)({
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-}));
+});
