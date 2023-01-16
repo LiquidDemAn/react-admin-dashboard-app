@@ -21,7 +21,11 @@ import {
 	EventsList,
 } from './calendar.styled';
 
-export const Calendar = () => {
+type Props = {
+	isMd: boolean;
+};
+
+export const Calendar = ({ isMd }: Props) => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
 	const [currentEvents, setCurrentEvents] = useState<EventApi[]>([]);
@@ -62,33 +66,35 @@ export const Calendar = () => {
 
 			<CalendarContainer>
 				{/* CURRENT EVENTS */}
-				<CalendarSideBar backgroundcolor={colors.primary[400]}>
-					<Typography variant='h5'>Events</Typography>
-					<List>
-						{currentEvents.map((event) => (
-							<EventsList
-								key={event.id}
-								backgroundcolor={colors.greenAccent[500]}
-							>
-								<ListItemText
-									primary={event.title}
-									secondary={
-										event.start && (
-											<Typography>
-												{formatDate(event.start, {
-													year: 'numeric',
-													month: 'short',
-													day: 'numeric',
-													timeZoneName: 'short',
-												})}
-											</Typography>
-										)
-									}
-								/>
-							</EventsList>
-						))}
-					</List>
-				</CalendarSideBar>
+				{!isMd && (
+					<CalendarSideBar backgroundColor={colors.primary[400]}>
+						<Typography variant='h5'>Events</Typography>
+						<List>
+							{currentEvents.map((event) => (
+								<EventsList
+									key={event.id}
+									backgroundColor={colors.greenAccent[500]}
+								>
+									<ListItemText
+										primary={event.title}
+										secondary={
+											event.start && (
+												<Typography>
+													{formatDate(event.start, {
+														year: 'numeric',
+														month: 'short',
+														day: 'numeric',
+														timeZoneName: 'short',
+													})}
+												</Typography>
+											)
+										}
+									/>
+								</EventsList>
+							))}
+						</List>
+					</CalendarSideBar>
+				)}
 
 				{/* CALENDAR */}
 				<CalendarWrapper>
@@ -101,8 +107,10 @@ export const Calendar = () => {
 							listPlugin,
 						]}
 						headerToolbar={{
-							left: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
-							center: 'title',
+							left: !isMd
+								? 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+								: 'title',
+							center: !isMd ? 'title' : undefined,
 						}}
 						initialView='dayGridMonth'
 						editable

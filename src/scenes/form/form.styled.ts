@@ -1,11 +1,11 @@
 import { Box, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const FormInner = styled(Box)(() => ({
+export const FormInner = styled(Box)({
 	display: 'grid',
-	gap: 30,
+	gap: 25,
 	gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-}));
+});
 
 export const FormInput = styled(TextField)(
 	({ column }: { column?: number }) => ({
@@ -17,8 +17,8 @@ export const FormInput = styled(TextField)(
 	})
 );
 
-export const ButtonContainer = styled(Box)(() => ({
+export const ButtonContainer = styled(Box)({
 	display: 'flex',
 	justifyContent: 'end',
-	marginTop: 20,
-}));
+	marginTop: 10,
+});

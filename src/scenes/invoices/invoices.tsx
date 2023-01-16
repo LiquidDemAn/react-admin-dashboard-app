@@ -14,6 +14,7 @@ export const Invoices = () => {
 		{
 			field: 'id',
 			headerName: 'ID',
+			width: 15,
 		},
 
 		{

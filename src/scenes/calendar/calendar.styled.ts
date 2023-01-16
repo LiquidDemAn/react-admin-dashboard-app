@@ -2,7 +2,7 @@ import { Box, List } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 type BackgroundProps = {
-	backgroundcolor: string;
+	backgroundColor: string;
 };
 
 export const CalendarContainer = styled(Box)`
@@ -10,20 +10,29 @@ export const CalendarContainer = styled(Box)`
 	justify-content: space-between;
 `;
 
-export const CalendarSideBar = styled(Box)<BackgroundProps>`
-	flex: 1 1 20%;
-	padding: 15px;
-	border-radius: 4px;
-	background-color: ${(props) => props.backgroundcolor};
-`;
+export const CalendarSideBar = styled(Box)(
+	({ backgroundColor }: BackgroundProps) => ({
+		flex: '1 1 20%',
+		padding: 15,
+		borderRadius: 4,
+		backgroundColor,
+	})
+);
 
-export const EventsList = styled(List)<BackgroundProps>`
-	margin: 10px 0;
-	border-radius: 2px;
-	background-color: ${(props) => props.backgroundcolor};
-`;
+export const EventsList = styled(List)(
+	({ backgroundColor }: BackgroundProps) => ({
+		margin: '10px 0',
+		paddingLeft: 5,
+		borderRadius: 2,
+		backgroundColor,
+	})
+);
 
-export const CalendarWrapper = styled(Box)`
-	flex: 1 1 100%;
-	margin-left: 15px;
-`;
+export const CalendarWrapper = styled(Box)({
+	flex: '1 1 100%',
+	marginLeft: 0,
+
+	'@media(min-width: 768px)': {
+		marginLeft: 15,
+	},
+});
