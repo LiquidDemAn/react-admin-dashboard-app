@@ -2,6 +2,7 @@ import { ResponsiveLine } from '@nivo/line';
 import { mockLineData as data } from '../../data/mock-data';
 import { useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
+import { BreakpointsEnum } from '../../App';
 
 type Props = {
 	isDashboard?: boolean;
@@ -10,6 +11,9 @@ type Props = {
 export const LineChart = ({ isDashboard }: Props) => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
+
+	const windowSize = window.innerWidth;
+	const isMd = windowSize < BreakpointsEnum.Md;
 
 	return (
 		<ResponsiveLine
@@ -49,7 +53,12 @@ export const LineChart = ({ isDashboard }: Props) => {
 				},
 			}}
 			colors={isDashboard ? { datum: 'color' } : { scheme: 'nivo' }}
-			margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+			margin={{
+				top: isMd ? 20 : 50,
+				right: isMd ? 20 : 110,
+				bottom: 50,
+				left: isMd ? 40 : 60,
+			}}
 			xScale={{ type: 'point' }}
 			yScale={{
 				type: 'linear',
@@ -66,17 +75,17 @@ export const LineChart = ({ isDashboard }: Props) => {
 				tickSize: 5,
 				tickPadding: 5,
 				tickRotation: 0,
-				legend: !isDashboard && 'transportation',
+				legend: !isDashboard && !isMd && 'transportation',
 				legendOffset: 36,
 				legendPosition: 'middle',
 			}}
 			axisLeft={{
 				tickValues: 5,
-                
+
 				tickSize: 5,
 				tickPadding: 5,
 				tickRotation: 0,
-				legend: !isDashboard && 'transportation',
+				legend: !isDashboard && !isMd && 'transportation',
 				legendOffset: -40,
 				legendPosition: 'middle',
 			}}
@@ -88,31 +97,35 @@ export const LineChart = ({ isDashboard }: Props) => {
 			pointBorderColor={{ from: 'serieColor' }}
 			pointLabelYOffset={-12}
 			useMesh={true}
-			legends={[
-				{
-					anchor: 'bottom-right',
-					direction: 'column',
-					justify: false,
-					translateX: 116,
-					translateY: 0,
-					itemWidth: 100,
-					itemHeight: 30,
-					itemsSpacing: 8,
-					symbolSize: 20,
-					symbolShape: 'circle',
-					itemDirection: 'left-to-right',
-					itemTextColor: '#777',
-					effects: [
-						{
-							on: 'hover',
-							style: {
-								itemBackground: 'rgba(0, 0, 0, .03)',
-								itemOpacity: 1,
+			legends={
+				isMd
+					? []
+					: [
+							{
+								anchor: 'bottom-right',
+								direction: 'column',
+								justify: false,
+								translateX: 116,
+								translateY: 0,
+								itemWidth: 100,
+								itemHeight: 30,
+								itemsSpacing: 8,
+								symbolSize: 20,
+								symbolShape: 'circle',
+								itemDirection: 'left-to-right',
+								itemTextColor: '#777',
+								effects: [
+									{
+										on: 'hover',
+										style: {
+											itemBackground: 'rgba(0, 0, 0, .03)',
+											itemOpacity: 1,
+										},
+									},
+								],
 							},
-						},
-					],
-				},
-			]}
+					  ]
+			}
 		/>
 	);
 };
