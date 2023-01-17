@@ -2,6 +2,7 @@ import { useTheme } from '@mui/material';
 import { ResponsiveBar } from '@nivo/bar';
 import { colorsObject } from '../../theme/colors';
 import { mockBarData as data } from '../../data/mock-data';
+import { BreakpointsEnum } from '../../App';
 
 type Props = {
 	isDashboard?: boolean;
@@ -10,6 +11,9 @@ type Props = {
 export const BarChart = ({ isDashboard }: Props) => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
+
+	const windowSize = window.innerWidth;
+	const isMd = windowSize < BreakpointsEnum.Md;
 
 	return (
 		<ResponsiveBar
@@ -45,7 +49,12 @@ export const BarChart = ({ isDashboard }: Props) => {
 			}}
 			keys={['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut']}
 			indexBy='country'
-			margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+			margin={{
+				top: 50,
+				right: isMd ? 0 : 130,
+				bottom: 50,
+				left: isMd ? 0 : 60,
+			}}
 			padding={0.3}
 			valueScale={{ type: 'linear' }}
 			indexScale={{ type: 'band', round: true }}
@@ -115,17 +124,17 @@ export const BarChart = ({ isDashboard }: Props) => {
 			legends={[
 				{
 					dataFrom: 'keys',
-					anchor: 'bottom-right',
-					direction: 'column',
+					anchor: isMd ? 'bottom' : 'bottom-right',
+					direction: isMd ? 'row' : 'column',
 					justify: false,
-					translateX: 120,
-					translateY: 0,
+					translateX: isMd ? 21 : 120,
+					translateY: isMd ? 55 : 0,
 					itemsSpacing: 2,
-					itemWidth: 100,
+					itemWidth: isMd ? 60 : 100,
 					itemHeight: 20,
 					itemDirection: 'left-to-right',
 					itemOpacity: 0.85,
-					symbolSize: 20,
+					symbolSize: isMd ? 10 : 20,
 				},
 			]}
 			isInteractive={false}
