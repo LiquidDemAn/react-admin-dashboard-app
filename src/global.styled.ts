@@ -40,7 +40,7 @@ export const TableComponent = styled(Box)(
 );
 
 export const ContentBox = styled(Box)(({ borderColor }) => ({
-	height: '74vh',
+	height: '75vh',
 	border: borderColor ? `1px solid ${borderColor}` : '',
 	borderRadius: '4px',
 }));

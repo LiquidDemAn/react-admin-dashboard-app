@@ -136,8 +136,8 @@ export const Sidebar = ({ isSmall, collapsed, handleCollapse }: Props) => {
 					)}
 
 					<MenuItemComponent
-						title='Profile Form'
-						to={RoutesEnum.Form}
+						title='Create User'
+						to={RoutesEnum.CreateUser}
 						icon={<PersonOutlinedIcon />}
 						selected={selected}
 						setSelected={setSelected}

@@ -7,7 +7,7 @@ import { CalendarPage } from './scenes/calendar';
 import { Contacts } from './scenes/contacts';
 import { Dashboard } from './scenes/dashboard';
 import { Faq } from './scenes/faq';
-import { CreateUserForm } from './scenes/form';
+import { CreateUserPage } from './scenes/create-user';
 import { Geography } from './scenes/geography';
 import { Sidebar } from './scenes/global/sidebar';
 import { Topbar } from './scenes/global/topbar';
@@ -23,7 +23,7 @@ export enum RoutesEnum {
 	Team = 'team',
 	Contacts = 'contacts',
 	Invoices = 'invoices',
-	Form = 'form',
+	CreateUser = 'create-user',
 	Calendar = 'calendar',
 	Faq = 'faq',
 	Bar = 'bar',
@@ -74,7 +74,10 @@ function App() {
 								<Route path={RoutesEnum.Team} element={<Team isMd={isMd} />} />
 								<Route path={RoutesEnum.Contacts} element={<Contacts />} />
 								<Route path={RoutesEnum.Invoices} element={<Invoices />} />
-								<Route path={RoutesEnum.Form} element={<CreateUserForm />} />
+								<Route
+									path={RoutesEnum.CreateUser}
+									element={<CreateUserPage />}
+								/>
 								<Route path={RoutesEnum.Calendar} element={<CalendarPage />} />
 								<Route path={RoutesEnum.Faq} element={<Faq />} />
 								<Route path={RoutesEnum.Bar} element={<Bar />} />

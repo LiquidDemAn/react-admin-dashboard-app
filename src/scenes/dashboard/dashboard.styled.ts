@@ -6,7 +6,7 @@ export const DashboardGridContainer = styled(Box)(
 	({ backgroundColor }: { backgroundColor: string }) => ({
 		gridColumn: 'span 12',
 		gridRow: 'span 2',
-		padding: '15px',
+		padding: 15,
 		backgroundColor,
 
 		'@media(min-width: 768px)': {
@@ -23,7 +23,7 @@ export const DashboardGridContainer = styled(Box)(
 export const Main = styled(ContentBox)({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12, 1fr)',
-	gridAutoRows: '140px',
-	gap: '20px',
+	gridAutoRows: 140,
+	gap: 20,
 	overflow: 'auto',
 });
