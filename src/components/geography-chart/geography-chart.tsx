@@ -2,6 +2,7 @@ import { ResponsiveChoropleth } from '@nivo/geo';
 import { ColorsObjectType } from '../../theme/colors';
 import { mockGeographyData as data } from '../../data/mock-data';
 import { geoFeatures } from '../../data/mock-geo-features';
+import { BreakpointsEnum } from '../../App';
 
 type Props = {
 	isDashboard?: boolean;
@@ -9,6 +10,9 @@ type Props = {
 };
 
 export const GeographyChart = ({ isDashboard, colors }: Props) => {
+	const windowSize = window.innerWidth;
+	const isSm = windowSize < BreakpointsEnum.Sm;
+
 	return (
 		<ResponsiveChoropleth
 			data={data}
@@ -47,7 +51,7 @@ export const GeographyChart = ({ isDashboard, colors }: Props) => {
 			unknownColor='#666666'
 			label='properties.name'
 			valueFormat='.2s'
-			projectionScale={isDashboard ? 40 : 130}
+			projectionScale={isDashboard || isSm ? 55 : 130}
 			projectionTranslation={isDashboard ? [0.49, 0.6] : [0.5, 0.5]}
 			projectionRotation={[0, 0, 0]}
 			borderWidth={1}
