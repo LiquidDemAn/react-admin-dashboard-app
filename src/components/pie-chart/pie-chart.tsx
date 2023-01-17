@@ -2,15 +2,19 @@ import { ResponsivePie } from '@nivo/pie';
 import { useTheme } from '@mui/material';
 import { colorsObject } from '../../theme/colors';
 import { mockPieData as data } from '../../data/mock-data';
+import { BreakpointsEnum } from '../../App';
 
 export const PieChart = () => {
 	const theme = useTheme();
 	const colors = colorsObject(theme.palette.mode);
 
+	const windowSize = window.innerWidth;
+	const isSm = windowSize < BreakpointsEnum.Sm;
+
 	return (
 		<ResponsivePie
 			data={data}
-            isInteractive={false}
+			isInteractive={false}
 			theme={{
 				axis: {
 					domain: {
@@ -40,7 +44,12 @@ export const PieChart = () => {
 					},
 				},
 			}}
-			margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+			margin={{
+				top: 40,
+				right: isSm ? 0 : 80,
+				bottom: isSm ? 0 : 80,
+				left: isSm ? 20 : 80,
+			}}
 			innerRadius={0.5}
 			padAngle={0.7}
 			cornerRadius={3}
@@ -50,6 +59,7 @@ export const PieChart = () => {
 				from: 'color',
 				modifiers: [['darker', 0.2]],
 			}}
+			enableArcLinkLabels={!isSm}
 			arcLinkLabelsSkipAngle={10}
 			arcLinkLabelsTextColor={colors.grey[100]}
 			arcLinkLabelsThickness={2}
@@ -60,7 +70,6 @@ export const PieChart = () => {
 				from: 'color',
 				modifiers: [['darker', 2]],
 			}}
-            
 			defs={[
 				{
 					id: 'dots',
@@ -83,13 +92,13 @@ export const PieChart = () => {
 			]}
 			legends={[
 				{
-					anchor: 'bottom',
-					direction: 'row',
+					anchor: isSm ? 'top-left' : 'bottom',
+					direction: isSm ? 'column' : 'row',
 					justify: false,
-					translateX: 0,
-					translateY: 56,
-					itemsSpacing: 0,
-					itemWidth: 100,
+					translateX: isSm ? -20 : 0,
+					translateY: isSm ? -20 : 56,
+					itemsSpacing: isSm ? 5 : 0,
+					itemWidth: 80,
 					itemHeight: 18,
 					itemTextColor: '#999',
 					itemDirection: 'left-to-right',
