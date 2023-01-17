@@ -3,7 +3,6 @@ import {
 	TopbarSearchBox,
 	TopbarSearchInput,
 	TopbarSearchButton,
-	TopbarIconsBox,
 } from './topbar.styled';
 import { useContext } from 'react';
 import { ColorContext } from '../../../theme/color-context';
@@ -16,6 +15,7 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import SearchIcon from '@mui/icons-material/Search';
+import { FlexBox } from '../../../global.styled';
 
 export const Topbar = () => {
 	const theme = useTheme();
@@ -34,7 +34,7 @@ export const Topbar = () => {
 			</TopbarSearchBox>
 
 			{/* Icons */}
-			<TopbarIconsBox>
+			<FlexBox>
 				<IconButton onClick={toggleColorMode}>
 					{mode === 'dark' ? (
 						<DarkModeOutlinedIcon />
@@ -54,7 +54,7 @@ export const Topbar = () => {
 				<IconButton>
 					<SettingsOutlinedIcon />
 				</IconButton>
-			</TopbarIconsBox>
+			</FlexBox>
 		</TopbarContainer>
 	);
 };
