@@ -1,9 +1,10 @@
 import { Typography, useTheme } from '@mui/material';
 import { Box } from '@mui/system';
 import { ReactElement } from 'react';
+import { FlexBox } from '../../global.styled';
 import { colorsObject } from '../../theme/colors';
 import { ProgressCircle } from '../progress-circle';
-import { Container, ProgressWrapper, Wrapper } from './stat-box.styled';
+import { Container, ProgressWrapper } from './stat-box.styled';
 
 type Props = {
 	title: string;
@@ -27,7 +28,7 @@ export const StatBox = ({
 
 	return (
 		<Container>
-			<Wrapper>
+			<FlexBox>
 				<Box>
 					{icon}
 					<Typography variant='h4' fontWeight='bold' color={colors.grey[100]}>
@@ -50,7 +51,7 @@ export const StatBox = ({
 						{increase}
 					</Typography>
 				</ProgressWrapper>
-			</Wrapper>
+			</FlexBox>
 		</Container>
 	);
 };
